@@ -39,48 +39,56 @@ class LiquidacionComision extends ModelClass
     use ModelTrait;
 
     /**
-     * id of agent.
+     * Id del agente.
      *
      * @var string
      */
     public $codagente;
 
     /**
+     * Código de la serie utilizada en la factura de proveedor.
+     *
      * @var string
      */
     public $codserie;
 
     /**
-     * Date of creation of the settlement.
+     * Fecha de creación de la liquidación.
      *
      * @var string
      */
     public $fecha;
 
     /**
+     * Id de la empresa.
+     *
      * @var int
      */
     public $idempresa;
 
     /**
-     * id of generate invoice.
+     * Id de la factura generada.
      *
      * @var int
      */
     public $idfactura;
 
     /**
+     * Clave primaria.
+     *
      * @var int
      */
     public $idliquidacion;
 
     /**
+     * Notas de texto.
+     *
      * @var string
      */
     public $observaciones;
 
     /**
-     * Total amount of the commission settlement.
+     * Importe total de la liquidación de comisión.
      *
      * @var double
      */

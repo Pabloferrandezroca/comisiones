@@ -36,55 +36,56 @@ class Comision extends ModelClass
     use ModelTrait;
 
     /**
-     * code of agent.
+     * Código del agente.
      *
      * @var string
      */
     public $codagente;
 
     /**
-     * code of customer.
+     * Código del cliente.
      *
      * @var string
      */
     public $codcliente;
 
     /**
-     * code of family.
+     * Código de la familia.
      *
      * @var string
      */
     public $codfamilia;
 
     /**
-     * Primary Key
+     * Clave primaria.
      *
      * @var int
      */
     public $idcomision;
 
     /**
-     * Link to company model
+     * Enlace al modelo de empresa.
      *
      * @var int
      */
     public $idempresa;
 
     /**
-     * code of product.
+     * Código del producto.
      *
      * @var int
      */
     public $idproducto;
 
     /**
-     * Commission percentage.
+     * Porcentaje de comisión.
      *
      * @var float
      */
     public $porcentaje;
 
     /**
+     * Prioridad cuando varias comisiones coinciden con la misma línea de documento.
      *
      * @var int
      */
