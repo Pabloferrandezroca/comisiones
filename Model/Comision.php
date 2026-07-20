@@ -85,6 +85,7 @@ class Comision extends ModelClass
     public $porcentaje;
 
     /**
+     * Priority when several commissions match the same document line.
      *
      * @var int
      */

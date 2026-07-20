@@ -46,6 +46,8 @@ class LiquidacionComision extends ModelClass
     public $codagente;
 
     /**
+     * Code of the series used in the supplier invoice.
+     *
      * @var string
      */
     public $codserie;
@@ -58,6 +60,8 @@ class LiquidacionComision extends ModelClass
     public $fecha;
 
     /**
+     * Id of the company.
+     *
      * @var int
      */
     public $idempresa;
@@ -70,11 +74,15 @@ class LiquidacionComision extends ModelClass
     public $idfactura;
 
     /**
+     * Primary key
+     * 
      * @var int
      */
     public $idliquidacion;
 
     /**
+     * Text notes.
+     *
      * @var string
      */
     public $observaciones;
