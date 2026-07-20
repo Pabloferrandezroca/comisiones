@@ -33,42 +33,42 @@ class ComisionPenalizacion extends ModelClass
     use ModelTrait;
 
     /**
-     * Primary key.
+     * Clave primaria.
      *
      * @var int
      */
     public $id;
 
     /**
-     * Link to the agent model.
+     * Enlace al modelo de agente.
      *
      * @var string
      */
     public $codagente;
 
     /**
-     * Link to company model.
+     * Enlace al modelo de empresa.
      *
      * @var integer
      */
     public $idempresa;
 
     /**
-     * from % discount.
+     * % de descuento desde.
      *
      * @var float
      */
     public $dto_desde;
 
     /**
-     * up to % discount.
+     * % de descuento hasta.
      *
      * @var float
      */
     public $dto_hasta;
 
     /**
-     * penalty percentage
+     * Porcentaje de penalización.
      *
      * @var float
      */
