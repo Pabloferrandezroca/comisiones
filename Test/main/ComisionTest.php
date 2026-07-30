@@ -21,6 +21,7 @@ namespace FacturaScripts\Test\Plugins;
 
 use FacturaScripts\Dinamic\Lib\Calculator;
 use FacturaScripts\Dinamic\Model\Agente;
+use FacturaScripts\Dinamic\Model\AlbaranCliente;
 use FacturaScripts\Dinamic\Model\Familia;
 use FacturaScripts\Dinamic\Model\PedidoCliente;
 use FacturaScripts\Plugins\Comisiones\Model\Comision;
@@ -142,6 +143,30 @@ final class ComisionTest extends TestCase
         $this->assertTrue($order->delete());
         $this->assertTrue($customer->delete());
         $this->assertTrue($customer->getDefaultAddress()->delete());
+        $this->assertTrue($agent->delete());
+    }
+
+    public function testDeliveryNoteWithoutCustomer(): void
+    {
+        // creamos un agente con comisión
+        $agent = new Agente();
+        $agent->nombre = 'Test No Customer';
+        $this->assertTrue($agent->save());
+
+        $commission = new Comision();
+        $commission->codagente = $agent->codagente;
+        $commission->porcentaje = 10;
+        $this->assertTrue($commission->save());
+
+        // calculamos un albarán que todavía no tiene cliente
+        $deliveryNote = new AlbaranCliente();
+        $deliveryNote->codagente = $agent->codagente;
+        $deliveryNote->codcliente = null;
+        $lines = [];
+        $this->assertTrue(Calculator::calculate($deliveryNote, $lines, false));
+        $this->assertEquals(0, $deliveryNote->totalcomision);
+
+        // eliminamos
         $this->assertTrue($agent->delete());
     }
 

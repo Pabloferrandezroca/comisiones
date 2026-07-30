@@ -168,7 +168,11 @@ class CalculatorMod extends CalculatorModClass
         return 0.00;
     }
 
-    protected function isValidCommissionForDoc(Comision $commission, string $codagente, string $codcliente): bool
+    protected function isValidCommissionForDoc(
+        Comision $commission,
+        string $codagente,
+        ?string $codcliente
+    ): bool
     {
         // comprobamos el agente si la comision tiene uno asignado
         if (false === empty($commission->codagente) && $commission->codagente != $codagente) {
@@ -201,7 +205,7 @@ class CalculatorMod extends CalculatorModClass
     /**
      * @throws Exception
      */
-    protected function loadCommissions(int $idempresa, ?string $codagente, string $codcliente): void
+    protected function loadCommissions(int $idempresa, ?string $codagente, ?string $codcliente): void
     {
         $this->commissions = [];
         if (empty($codagente)) {
