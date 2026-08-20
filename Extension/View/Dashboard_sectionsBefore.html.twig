@@ -1,0 +1,61 @@
+{% set comisiones = fsc.getComisiones() %}
+{% set liquidaciones = fsc.getLiquidaciones() %}
+{% if comisiones is not empty or liquidaciones is not empty %}
+    <div class="row">
+        {% if comisiones is not empty %}
+            <div class="{{ liquidaciones is not empty ? 'col-sm-6' : 'col-sm-12' }}">
+                <div class="card shadow mb-3">
+                    <div class="p-3">
+                        <h2 class="h4 mb-0">
+                            <i class="fa-solid fa-percent fa-fw"></i>
+                            {{ trans('commissions') }}
+                        </h2>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-hover mb-0">
+                            <tbody>
+                            {% for mes in comisiones %}
+                                <tr>
+                                    <td>{{ mes.label }}</td>
+                                    <td class="text-end">{{ money(mes.total) }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        {% if liquidaciones is not empty %}
+            <div class="{{ comisiones is not empty ? 'col-sm-6' : 'col-sm-12' }}">
+                <div class="card shadow mb-3">
+                    <div class="p-3">
+                        <h2 class="h4 mb-0">
+                            <i class="fa-solid fa-file-invoice-dollar fa-fw"></i>
+                            {{ trans('settlements') }}
+                        </h2>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-hover mb-0">
+                            <tbody>
+                            {% for liquidacion in liquidaciones %}
+                                <tr class="clickableRow" data-href="{{ liquidacion.url() }}">
+                                    <td>{{ liquidacion.fecha }}</td>
+                                    <td class="text-end">{{ money(liquidacion.total) }}</td>
+                                    <td class="text-end">
+                                        {% if liquidacion.idfactura %}
+                                            <span class="badge bg-success">{{ trans('settled') }}</span>
+                                        {% else %}
+                                            <span class="badge bg-warning">{{ trans('not-settled') }}</span>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endif %}
