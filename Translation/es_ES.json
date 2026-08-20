@@ -1,6 +1,5 @@
 {
     "agent-penalty-info": "Si el rango de descuento es para todos los agentes o para el agente seleccionado",
-    "commissions": "Comisiones",
     "company-penalty-info": "Si el rango de descuento es para todas las empresas o sólo para la seleccionada",
     "error-calculate-commission": "Error al calcular la comisión del documento %code%",
     "from-dto": "Para descuentos desde",
@@ -14,7 +13,6 @@
     "penalty-help-title": "Penalización por hacer descuentos",
     "penalty-penalty-info": "Porcentaje que se resta al porcentaje de comisión sobre la venta. (Introducir un valor positivo)",
     "settled": "Liquidada",
-    "settlements": "Liquidaciones",
     "show-into-footer": "Mostrar en pie de documento",
     "show-into-modal": "Mostrar en ventana auxiliar",
     "total-position": "Posición del Total",
